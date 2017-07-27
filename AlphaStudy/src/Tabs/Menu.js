@@ -7,22 +7,25 @@ import {
   View,
   Image,
   Text,
+  TouchableNativeFeedback
 } from 'react-native';
 
+import Actions from 'react-native-router-flux';
+
 const window = Dimensions.get('window');
-const uri = 'https://pickaface.net/gallery/avatar/Opi51c74d0125fd4.png';
+const uri = '../image/thais.png';
 
 const styles = StyleSheet.create({
   menu: {
     flex: 1,
     width: window.width,
     height: window.height,
-    backgroundColor: 'gray',
+    backgroundColor: 'rgb(31,73,125)',
     padding: 20,
   },
   avatarContainer: {
-    marginBottom: 20,
-    marginTop: 20,
+    marginBottom: 40,
+    marginTop: 40,
   },
   avatar: {
     width: 48,
@@ -32,13 +35,17 @@ const styles = StyleSheet.create({
   },
   name: {
     position: 'absolute',
+    fontSize: 26,
     left: 70,
     top: 20,
+    color: '#FFFFFF',
+    fontWeight: 'bold'
   },
   item: {
-    fontSize: 14,
+    fontSize: 22,
     fontWeight: '300',
     paddingTop: 5,
+    color: '#FFFFFF',
   },
 });
 
@@ -53,18 +60,36 @@ export default function Menu({ onItemSelected }) {
         <Text style={styles.name}>Your name</Text>
       </View>
 
+      <TouchableNativeFeedback onPress = {() => Actions.index()}>
+        <Text>Calendário</Text>
+      </TouchableNativeFeedback>
+
       <Text
-        onPress={() => onItemSelected('About')}
+        onPress={() => onItemSelected('Contacts')}
         style={styles.item}
       >
-        About
+        Agenda
       </Text>
 
       <Text
         onPress={() => onItemSelected('Contacts')}
         style={styles.item}
       >
-        Contacts
+        Horário
+      </Text>
+
+      <Text
+        onPress={() => onItemSelected('Contacts')}
+        style={styles.item}
+      >
+        Plano de Estudos
+      </Text>
+
+      <Text
+        onPress={() => onItemSelected('Contacts')}
+        style={styles.item}
+      >
+        Configurações
       </Text>
     </ScrollView>
   );
