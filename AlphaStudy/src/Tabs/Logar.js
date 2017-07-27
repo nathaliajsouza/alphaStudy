@@ -12,7 +12,7 @@ import{
 import Dimensions from 'Dimensions';
 import {Actions} from 'react-native-router-flux';
 
-class Logar extends Component{
+export default class Logar extends Component{
   render(){
     return(
       <KeyboardAvoidingView behavior='padding' style = {styles.container}>
@@ -20,7 +20,6 @@ class Logar extends Component{
       <View style = {{alignItems: 'center', justifyContent: 'center'}}>
         <View style={styles.quadradoAzul}/>
 
-        <View style = {{width: 300}}>
           <TextInput
             placeholder = "Nome de usuário"
             returnKeyType = 'next'
@@ -40,7 +39,7 @@ class Logar extends Component{
           />
 
 
-        <View style={{alignItems: 'center', flexDirection:'column'}}>
+         <View style={{alignItems: 'center', flexDirection:'column'}}>
           <View style = {styles.botao}>
             <Button  title = "CONTINUAR" color = 'rgb(31,73,125)' style = {styles.btn} onPress = {() => Actions.Principal()}/>
           </View>
@@ -48,8 +47,7 @@ class Logar extends Component{
           <Text style={styles.textEsqueceuSenha}>Forgot Password?</Text>
         </View>
 
-        </View>
-        </View>
+      </View>
       </KeyboardAvoidingView>
 
     );
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
 		paddingLeft: 10,
 		borderRadius: 20,
 		color: '#ffffff',
-    top:320,
+    top: 400
   },
   inputSenha: {
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
@@ -102,8 +100,7 @@ const styles = StyleSheet.create({
 	},
   quadradoAzul:{
     width: DEVICE_WIDTH,
-    height: DEVICE_HEIGHT - 300,
-    top: 85,
+    height: DEVICE_HEIGHT-300,
     alignItems: 'center',
     backgroundColor: '#1f497d'
   },
