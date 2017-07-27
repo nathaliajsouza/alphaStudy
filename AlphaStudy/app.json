@@ -1,0 +1,9 @@
+{
+  "expo": {
+  "sdkVersion": "18.0.0",
+  "name": "AlphaStudy",
+  "slug": "AlphaStudy",
+  "privacy": "public",
+  "icon": "./src/image/logo.png"
+  }
+}
