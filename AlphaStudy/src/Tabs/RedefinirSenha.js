@@ -8,6 +8,7 @@ import{
   Image,
   KeyboardAvoidingView,
   TouchableOpacity,
+  Alert,
 } from 'react-native'
 
 import PropTypes from 'prop-types';
@@ -15,16 +16,14 @@ import Dimensions from 'Dimensions';
 import {Actions} from 'react-native-router-flux';
 
 
-export default class Logar extends Component{
+export default class RedefinirSenha extends Component{
 
   onPressBotaoContinuar=()=>{
-    var value =
-    Actions.Principal();
-  };
-
-  onPressRedefinirSenha=()=>{
-    var value =
-    Actions.RedefinirSenha();
+    Alert.alert('Redefinir Senha','Enviamos um e-mail para você!',
+    [
+      {text: 'OK', onPress: () => console.log('OK Pressed')},
+    ],
+   { cancelable: false })
   };
 
   render(){
@@ -34,29 +33,18 @@ export default class Logar extends Component{
       <View style = {{alignItems: 'center', justifyContent: 'center'}}>
         <View style={styles.quadradoAzul}>
           <Image source = {(require('../image/person.png'))} style = {{top:65}}/>
-           <Text style={styles.textAcesseSistema}>ACESSE O SISTEMA</Text>
+           <Text style={styles.text}>Redefinir Senha</Text>
         </View>
 
-          <TextInput
-            placeholder = "Nome de usuário"
-            returnKeyType = 'next'
-            autoCorrect = {false}
-            autoCapitalize = 'none'
-            onSubmitEditing = {() => this.passwordInput.focus()}
-            style={styles.inputNome}
-            underlineColorAndroid='transparent'
-          />
-
-          <TextInput
-            placeholder = "Senha"
-            secureTextEntry = {true}
-            returnKeyType = 'go'
-            ref = {(input) => this.passwordInput = input}
-            style={styles.inputSenha}
-            underlineColorAndroid='transparent'
-          />
-
-         <Text style={styles.textEsqueceuSenha} onPress= {this.onPressRedefinirSenha}>ESQUECEU A SENHA?</Text>
+        <TextInput
+          placeholder = "Digite seu E-mail"
+          returnKeyType = 'go'
+          autoCorrect = {false}
+          autoCapitalize = 'none'
+          keyboardType = 'email-address'
+          underlineColorAndroid='transparent'
+          style={styles.input}
+        />
 
          <View style={{alignItems: 'center', flexDirection:'column'}}>
           <View style = {styles.botao}>
@@ -82,37 +70,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f4f7f9',
   },
-  inputNome: {
+  input: {
     backgroundColor: 'rgba(255, 255, 255, 0.4)',
 		width: DEVICE_WIDTH - 100,
 		height: 40,
 		marginHorizontal: 20,
 		paddingLeft: 10,
 		color: '#1f497d',
-    top:30,
+    top:60,
     borderColor:'#1f497d',
-  },
-  inputSenha: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    width: DEVICE_WIDTH - 100,
-    height: 40,
-    marginHorizontal: 20,
-    paddingLeft: 10,
-    color: '#1f497d',
-    top:50,
   },
   botao: {
     width: 200,
-    top: 100,
+    top: 90,
   },
-  textEsqueceuSenha: {
-		color: '#1f497d',
-		backgroundColor: 'transparent',
-    top: 80,
-    left:60,
-    fontSize:15,
-	},
-  textAcesseSistema: {
+  text: {
 		top:85,
     color: '#ffffff',
     backgroundColor: 'transparent',

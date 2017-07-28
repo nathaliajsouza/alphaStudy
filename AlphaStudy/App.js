@@ -5,6 +5,7 @@ import {Index} from './src/Index';
 import Logar from './src/Tabs/Logar';
 import Cadastrar from './src/Tabs/Cadastrar';
 import Principal from './src/Tabs/Principal';
+import RedefinirSenha from './src/Tabs/RedefinirSenha';
 import Menu from './src/Tabs/Menu';
 
 export default class App extends React.Component {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
           <Scene key="Principal" component={Principal} title="Principal"  hideNavBar={true}/>
           <Scene key="Logar" component={Logar} title="Logar" hideNavBar={true}/>
           <Scene key="Cadastrar" component={Cadastrar} title="Cadastrar" hideNavBar={true}/>
+          <Scene key="RedefinirSenha" component={RedefinirSenha} title="RedefinirSenha" hideNavBar={true}/>
         </Scene>
       </Router>
     );
